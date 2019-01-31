@@ -1,15 +1,17 @@
 var mongoose = require('mongoose');
-var users  = mongoose.model('users');
+var usuarios  = mongoose.model('users');
+var express = require('express');
+var app = express.Router();
+var bodyParser = require('body-parser');
 
-
+app.use(bodyParser.json()); //parsing application/json
 
 exports.consultarUsuario = function(req, res){
 
     console.log('Servicio validador de login....');
-
     var username = req.params.username;
 
-    users.find({'email':username}).exec()
+    usuarios.find({'email':username}).exec()
     .then( doc =>{
         if(doc.length > 0){
             console.log(doc);
@@ -24,3 +26,4 @@ exports.consultarUsuario = function(req, res){
     });
 
 }
+
