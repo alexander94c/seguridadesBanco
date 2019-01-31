@@ -5,6 +5,10 @@ var mongoose = require('mongoose');
 var users  = mongoose.model('users');
 var bodyParser = require('body-parser');
 
+/**/
+var bcrypt = require('bcrypt-nodejs');
+var BCRYPT_SALT_ROUNDS = 10;
+
 var ctrlUsuario = require('../controllers/ctrlUsuario');
 
 
@@ -29,12 +33,14 @@ router.post('/registro',
 );
 
 router.post('/ingresarUsuario', (req, res)=>{
+    var password = req.body.password
+    var encriptado = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+
     var usuarioNew = new users({
         email: req.body.email,
-        password: req.body.password,
+        password: encriptado,
         rol: req.body.rol
     });
-    console.log('Datos recibidos...:',usuarioNew);
 
     usuarioNew.save().then(result => {
         console.log('1 usuario insertado-->:',result);
@@ -64,15 +70,9 @@ router.get('/cerrarSesion', (req, res, next ) => {
     res.redirect('/login');
 });
 
-/*/////////////////////////////////////////////////////////////////*/
 /*Metodo que consulte si los datos existe y retorna el status 200 0 404*/
-/*Funciona OK*/
 router.route('/loginUsuario/:username')
 .get(ctrlUsuario.consultarUsuario);
-
-router.route('/crearUsuarioNew')
-.post(ctrlUsuario.crearUsuario);
-
 
 router.post('/registroUser2', (req, res) => {
 
@@ -80,7 +80,7 @@ router.post('/registroUser2', (req, res) => {
 
     var objUsuario = new users ({
         email: req.body.email,
-        password: req.body.password,
+        password: users.encryptPassword(req.body.password),
         rol: req.body.rol
     });
     
