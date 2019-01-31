@@ -1,0 +1,31 @@
+<%- layout('layouts/main.ejs') %>
+<div class="row">
+    <div class="col-md-6 mt-5 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <form action="/registro" method="POST">
+                    <div class="card-header text-center">
+                        <h2>
+                            Registro Nuevo Usuario 
+                        </h2>
+                    </div>
+                    
+                    <br/>
+                    <div class="form-group">
+                        <input type="text" name="email" placeholder="Ingresa el usuario" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Ingresa el password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="rol" placeholder="Ingresa el Rol" class="form-control">
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-block mt-4">
+                        Crear Usuario
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

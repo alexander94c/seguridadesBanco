@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Notificaciones Banco BanQuito</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <h1>Notificaciones</h1>
+        <form action="/notificaciones" method="POST">
+            
+            <div>
+                ID de cliente:
+                <input type="text" name="idcliente" placeholder="Ingrese la cédula">
+            </div>
+            <br/>
+            <div>
+                Número de Cuenta:
+                <input type="text" name="numerodecuenta" placeholder="Ingrese el número de cuenta">
+            </div>
+            <br/>
+            <div>
+                Tipo de Transacción: 
+                    <select name="tipoTransaccion" size="1">
+                        <option value="Retiro"> Retiro </option>
+                        <option selected value="CobroDeCheques"> Cobro de Cheques </option>
+                        <option value="SolicitudDePrestamo"> Solicitud de Préstamo </option>
+                        <option value="Transferencia"> Transferencia </option>
+                    </select> 
+            </div>
+            <br/>    
+            <div>
+                Fecha Transacción:
+                <input type="text" name="fechaTransacción" placeholder="Ingresa la cédula">
+            </div>
+            <br/>
+            <div>
+                Monto de Transacción:
+                <input type="text" name="montoTransaccion" placeholder="Ingresa el monto de la Transacción">
+            </div>
+            <br/>
+            <div>
+                Mensaje
+                <input type="textarea" name="mensaje" placeholder="...">
+            </div>
+            <br/>
+            <button type="submit">Enviar</button>
+        </form>
+    </body>
+</html>

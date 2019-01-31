@@ -1,0 +1,126 @@
+﻿// router.use((req, res, next) => {
+  //  isAutenticated(req, res,next)
+    //next();
+//}) 
+
+
+/* function isAutenticated(req, res, next) {
+    if(req.isAutenticated()) {
+        return next();
+    }
+    res.redirect('/login');
+};
+ */
+
+
+****************************************************************************************************
+**************** APUNTES PROYECTO 3ER PARCIAL ARQ. SOFTWARE ****************************************
+****************************************************************************************************
+
+Librerias:
+
+- express: framewrok que permite 
+- mongoose: bilbioteca para conectarme con mongo db
+- ejs: usar motor de plantillas 
+- connect-flash: para mandar información entre paginas 
+- morgan: para ver las peticiones http que llegan a nuestro servidor 
+- passport: 
+- bcrypt-nodejs: aplica algoritmos para cifrar las contraseñas 
+
+
+plantilla JSON
+*************INSERTAR ALUMNOS**********
+RUTA:
+http://localhost:3000/registroAlumno
+
+FECHAS : 2019-01-19T03:45:36.061Z
+
+
+*********************************
+///// Alumno sin direccion /////
+*********************************
+
+
+{
+"cedula":"1717171717",
+ "nombre": "Kathy",
+ "apellidos": "Gomez",
+ "edad":22,
+ "estatura":1.45,
+ "telefonos":{
+	 "numero":"096874362",
+	 "descripcion":"Telefono celular"
+ }
+}
+
+***********DATOS DE DIRECCION*************
+"direccion":{
+	"calle":"Mexico",
+	"numero":"Uruguay",
+	"interconexion":"Puente Guajalo"
+ }
+ 
+ 
+
+
+ {
+ "cedula": "0503431752",
+ "nombre": "Ivonne",
+ "apellidos": "Tayo",
+ "edad":24,
+ "estatura":1.65,
+ "direccion":{
+	"calle":"Argentina",
+	"numero":"10 de Agosto",
+	"interconexion":"Puente Guajalo"
+ },
+ "telefonos":{
+	 "numero":"0968044935",
+	 "descripcion":"Telefono celular"
+ }
+}
+/***********************OK ***********************************/
+
+ {
+"cedula": "12345",
+ "nombre": "Alexander",
+ "apellidos": "Cajas",
+ "edad":23,
+ "estatura":1.68,
+"fechaNacimiento": "2016-05-18T16:00:00Z",
+ "direccion":{
+	"calle":"Av. Quito",
+	"numero":"OE3-325",
+	"interconexion":"Calle Bolivia"
+ },
+ "telefonos":{
+	 "numero":"0968044935",
+	 "descripcion":"Telefono celular"
+ }
+}
+---------------------------------------------------------------------------------------------------------
+
+
+***FECHAS**
+
+time: {$date:"2013-11-20T23:32:18Z"}
+{ "$date" : "2013-02-07T09:09:09.212Z"}
+
+*** BORRAR REGISTRO MONGO DB **
+db.alumnos.remove({'cedula':'1718141520'})
+
+*************************************
+EJECUTAR 
+*************************************
+npm run dev
+*************
+APUTNES PROYECTO
+
+recibe
+usuario
+contraseñas
+rol
+
+contesta 200 o 400
+
+
