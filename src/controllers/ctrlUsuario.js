@@ -9,11 +9,24 @@ app.use(bodyParser.json()); //parsing application/json
 exports.consultarUsuario = function(req, res){
 
     console.log('Servicio validador de login....');
-    var username = req.params.username;
+    var email = req.params.email;
+    var password = req.params.password
 
-    usuarios.find({'email':username}).exec()
+    console.log('Usuario:', email);
+    console.log('Clave:', password);
+
+    var usuario = usuarios.find({'email': email})
+    if(usuario.comparePassword(password)){
+        var bandera = 1;
+    } else {
+        bandera = 0;
+    }   
+
+    //usuarios.find({'email':email, 'password':password})
+    usuarios.find({'email':email})
+    .exec()
     .then( doc =>{
-        if(doc.length > 0){
+        if(doc.length > 0 && bandera == 1){
             console.log(doc);
             res.status(200).json({doc});
         }else {
